@@ -1,16 +1,17 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import Aura from "@primevue/themes/aura";
 
 export default defineNuxtConfig({
     devtools: { enabled: false },
-    modules: ["@nuxtjs/tailwindcss", "@primevue/nuxt-module"],
-    primevue: {
-        options: {
-            theme: {
-                preset: Aura,
-            },
-            ripple: true,
+    modules: ["@primevue/nuxt-module"],
+    css: ['~/assets/css/main.css'],
+    postcss: {
+        plugins: {
+          tailwindcss: {},
+          autoprefixer: {},
         },
+      },
+    primevue: {
         autoImport: true,
+        importTheme: { from: '~/themes/lara-light-green.js' },
     },
 });
